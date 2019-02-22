@@ -34,8 +34,69 @@ class Transaction(models.Model):
     simulation = models.BooleanField(default=False)
     objects = TransactionManager()
 
-class Transaction(TimeStampedModel):
-    pass
+    def __repr__(self):
+        return '<yekpay id:{0}>'.format(self.order_number)
+
+    def __str__(self):
+        return "yekpay: {0}".format(self.order_number)
+
+    def success(self):
+        self.status = "SUCCESS"
+        self.successful_payment_date_time = timezone.now()
+        self.save(
+            update_fields=[
+                'status',
+                'successful_payment_date_time'
+            ]
+        )
+
+    def fail(self, failure_reason=None):
+        self.status = "FAILED"
+        if failure_reason:
+            self.failure_reason = failure_reason
+        self.save(
+            update_fields=[
+                'status',
+                'failure_reason'
+            ]
+        )
+
+    def is_successful(self):
+        return self.status == 'SUCCESS'
+
+    def get_transaction_start_url(self, request=None):
+        if self.simulation is False:
+            return YEKPAY_START_GATEWAY + self.authority_start
+        else:
+            relative_start_url = reverse(
+                'yekpay:sandbox-payment',
+                kwargs={
+                    'authority_start': self.authority_start
+                }
+            )
+            if request:
+                return request.build_absolute_uri(
+                    relative_start_url
+                )
+            else:
+                return relative_start_url
+
+    def get_verify_url(self):
+        return reverse(
+            'yekpay:verify_transaction',
+            kwargs={
+                'transaction_order_number': self.order_number.hashid
+            }
+        ) + f'?authority={self.authority_verify}'
+
+    def get_client_callback_url(self):
+        if self.callback_url:
+            return self.callback_url + f'?orderNumber={self.order_number}'
+        else:
+            raise CallbackUrlNotProvided(
+                f"Callback url is not set in transaction with order number {self.order_number.hashid}"
+            )
+
     
 
 
