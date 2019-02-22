@@ -15,33 +15,26 @@ class Transaction(models.Model):
     amount = models.DecimalField(
         max_digits=64, decimal_places=2, default=0, blank=True, null=True
     )
-    authority_start = models.CharField(
+    authority = models.CharField(
         max_length=100, blank=True, null=True
-    )  # by module
-    authority_verify = models.CharField(
-        max_length=100, blank=True, null=True
-    )  # by module
+    )
+    ref_id = models.IntegerField(null=True, blank=True)
     description = models.TextField()
     callback_url = models.CharField(max_length=100)
-    first_name = models.CharField(max_length=225)
-    last_name = models.CharField(max_length=225)
-    email = models.CharField(max_length=225)
-    mobile = models.CharField(max_length=225)
+    first_name = models.CharField(max_length=225, blank=True, null=True)
+    last_name = models.CharField(max_length=225, blank=True, null=True)
+    email = models.CharField(max_length=225, blank=True, null=True)
+    mobile = models.CharField(max_length=225, blank=True, null=True)
     order_number = HashidField(allow_int_lookup=True, blank=True, null=True)
-    address = models.CharField(max_length=225)
-    country = models.CharField(max_length=225)
-    postal_code = models.CharField(max_length=225)
-    city = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)  # by module
-    successful_payment_date_time = models.DateTimeField(
-        blank=True, null=True
-    )  # by module
-    status = models.CharField(
-        max_length=100, choices=TRANSACTION_STATUS_CHOICES
-    )  # by module
-    failure_reason = models.CharField(
-        max_length=100, blank=True, null=True
-    )  # by module
+    address = models.CharField(max_length=225, blank=True, null=True)
+    country = models.CharField(max_length=225, blank=True, null=True)
+    postal_code = models.CharField(max_length=225, blank=True, null=True)
+    city = models.CharField(max_length=100, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    successful_payment_date_time = models.DateTimeField(blank=True, null=True)
+    # status = models.CharField(max_length=100, choices=TRANSACTION_STATUS_CHOICES)
+    status = models.CharField(max_length=100)
+    failure_reason = models.CharField(max_length=100, blank=True, null=True)
     simulation = models.BooleanField(default=False)
     objects = TransactionManager()
 
@@ -67,25 +60,16 @@ class Transaction(models.Model):
 
     def get_transaction_start_url(self, request=None):
         if self.simulation is False:
-            return ZARINPAL_START_GATEWAY + self.authority_start
+            return ZARINPAL_START_GATEWAY + self.authority
         else:
             relative_start_url = reverse(
                 "zarinpal:sandbox-payment",
-                kwargs={"authority_start": self.authority_start},
+                kwargs={"authority_start": self.authority},
             )
             if request:
                 return request.build_absolute_uri(relative_start_url)
             else:
                 return relative_start_url
-
-    def get_verify_url(self):
-        return (
-            reverse(
-                "zarinpal:verify_transaction",
-                kwargs={"transaction_order_number": self.order_number.hashid},
-            )
-            + f"?authority={self.authority_verify}"
-        )
 
     def get_client_callback_url(self):
         if self.callback_url:
