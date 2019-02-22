@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-test_django-zarrinpal
+test_django-zarinpal
 ------------
 
-Tests for `django-zarrinpal` models module.
+Tests for `django-zarinpal` models module.
 """
 
 from django.test import TestCase
 
-from zarrinpal import models
+from zarinpal import models
 
 
 class TestZarrinpal(TestCase):

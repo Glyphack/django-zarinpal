@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from . import views
 
 
-app_name = 'zarrinpal'
+app_name = 'zarinpal'
 urlpatterns = [
     url(
         regex="^Transaction/~create/$",
