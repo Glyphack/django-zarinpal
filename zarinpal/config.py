@@ -1,12 +1,12 @@
 from django.conf import settings
 
-ZARINPAL_MERCHANT_ID = getattr(
-    settings, "ZARINPAL_MERCHANT_ID", ""
-)
 ZARINPAL_WEBSERVICE = "https://www.zarinpal.com/pg/services/WebGate/wsdl"
 ZARINPAL_START_GATEWAY = "https://www.zarinpal.com/pg/StartPay/"
 ZARINPAL_CALLBACK_URL = getattr(settings, "ZARINPAL_CALLBACK_URL")
 ZARINPAL_SIMULATION = getattr(settings, "ZARINPAL_SIMULATION", False)
+ZARINPAL_MERCHANT_ID = getattr(
+    settings, "ZARINPAL_MERCHANT_ID", ""
+)
 
 if ZARINPAL_SIMULATION:
     ZARINPAL_WEBSERVICE = "https://sandbox.zarinpal.com/pg/services/WebGate/wsdl"
