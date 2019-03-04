@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.utils import timezone
 from hashid_field import HashidField
 
-from zarinpal.zarinpal.exceptions import CallbackUrlNotProvided
+from .exceptions import CallbackUrlNotProvided
 from .config import TRANSACTION_STATUS_CHOICES, ZARINPAL_START_GATEWAY
 from .managers import TransactionManager
 
