@@ -25,7 +25,7 @@ class Transaction(models.Model):
     last_name = models.CharField(max_length=225, blank=True, null=True)
     email = models.CharField(max_length=225, blank=True, null=True)
     mobile = models.CharField(max_length=225, blank=True, null=True)
-    order_number = HashidField(allow_int_lookup=True, blank=True, null=True)
+    order_number = HashidField(allow_int_lookup=True, blank=True, null=True, salt='place a salt here') # todo:  add salt
     address = models.CharField(max_length=225, blank=True, null=True)
     country = models.CharField(max_length=225, blank=True, null=True)
     postal_code = models.CharField(max_length=225, blank=True, null=True)
