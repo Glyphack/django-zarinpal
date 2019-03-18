@@ -44,7 +44,8 @@ class Transaction(models.Model):
     def __str__(self):
         return "zarinpal: {0}".format(self.order_number)
 
-    def success(self):
+    def success(self, ref_id):
+        self.ref_id = ref_id
         self.status = "SUCCESS"
         self.successful_payment_date_time = timezone.now()
         self.save(update_fields=["status", "successful_payment_date_time"])
