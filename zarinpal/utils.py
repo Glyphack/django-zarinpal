@@ -60,7 +60,4 @@ def get_call_back_url(transaction):
     else:
         return Site.objects.get_current().domain + reverse(
             'zarinpal:verify_transaction',
-            kwargs={
-                'transaction_order_number': transaction.authority
-            }
         )
