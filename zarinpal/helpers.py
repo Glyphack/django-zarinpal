@@ -9,5 +9,5 @@ def generate_start_transaction_data(transaction):
         "description": transaction.description,
         "email": transaction.email,
         "mobile": transaction.mobile,
-        "callback_url": get_call_back_url(transaction),
+        "callback_url": get_call_back_url(),
     }
