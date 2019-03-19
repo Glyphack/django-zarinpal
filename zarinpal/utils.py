@@ -1,7 +1,9 @@
+from django.contrib.sites.models import Site
 from django.http import HttpResponse
+from django.urls import reverse
 from zeep import Client
 
-
+from zarinpal.helpers import generate_start_transaction_data
 from .config import (
     ZARINPAL_MERCHANT_ID,
     ZARINPAL_SIMULATION,
@@ -24,13 +26,10 @@ def start_transaction(transaction_data: dict, simulation: bool = ZARINPAL_SIMULA
         start_transaction_data['callback_url'],
     )
     if result.Status == 100:
-        if simulation:
-            return ZARINPAL_SIMULATION + result.Authority
-        else:
-            return ZARINPAL_START_GATEWAY + result.Authority
+        return ZARINPAL_START_GATEWAY + result.Authority
 
 
-def verify_transaction(request):
+def verify_transaction(request) -> HttpResponse:
     client = Client(ZARINPAL_WEBSERVICE)
     authority = request.GET['Authority']
     transaction = Transaction.objects.get(authority=authority)
@@ -55,12 +54,13 @@ def verify_transaction(request):
         return HttpResponse('Transaction failed or canceled by user')
 
 
-def generate_start_transaction_data(transaction):
-    return {
-        'merchant_id': ZARINPAL_MERCHANT_ID,
-        "amount": transaction.amount,
-        "description": transaction.description,
-        "email": transaction.email,
-        "mobile": transaction.mobile,
-        "callback_url": ZARINPAL_CALLBACK_URL,
-    }
+def get_call_back_url(transaction):
+    if ZARINPAL_CALLBACK_URL:
+        return ZARINPAL_CALLBACK_URL
+    else:
+        return Site.objects.get_current().domain + reverse(
+            'zarinpal:verify_transaction',
+            kwargs={
+                'transaction_order_number': transaction.authority
+            }
+        )
