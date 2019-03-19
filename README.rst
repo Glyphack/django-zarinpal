@@ -1,29 +1,29 @@
 =============================
-django-zarrinpal
+django-zarinpal
 =============================
 
-.. image:: https://badge.fury.io/py/django-zarrinpal.svg
-    :target: https://badge.fury.io/py/django-zarrinpal
+.. image:: https://badge.fury.io/py/django-zarinpal.svg
+    :target: https://badge.fury.io/py/django-zarinpal
 
-.. image:: https://travis-ci.org/glyphack/django-zarrinpal.svg?branch=master
-    :target: https://travis-ci.org/glyphack/django-zarrinpal
+.. image:: https://travis-ci.org/glyphack/django-zarinpal.svg?branch=master
+    :target: https://travis-ci.org/glyphack/django-zarinpal
 
-.. image:: https://codecov.io/gh/glyphack/django-zarrinpal/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/glyphack/django-zarrinpal
+.. image:: https://codecov.io/gh/glyphack/django-zarinpal/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/glyphack/django-zarinpal
 
-django package for integrating payments with zarrinpal
+django package for integrating payments with zarinpal
 
 Documentation
 -------------
 
-The full documentation is at https://django-zarrinpal.readthedocs.io.
+The full documentation is at https://django-zarinpal.readthedocs.io.
 
 Quickstart
 ----------
 
-Install django-zarrinpal::
+Install django-zarinpal::
 
-    pip install django-zarrinpal
+    pip install django-zarinpal
 
 Add it to your `INSTALLED_APPS`:
 
@@ -31,20 +31,20 @@ Add it to your `INSTALLED_APPS`:
 
     INSTALLED_APPS = (
         ...
-        'zarrinpal.apps.ZarrinpalConfig',
+        'zarinpal.apps.ZarinpalConfig',
         ...
     )
 
-Add django-zarrinpal's URL patterns:
+Add django-zarinpal's URL patterns:
 
 .. code-block:: python
 
-    from zarrinpal import urls as zarrinpal_urls
+    from zarinpal import urls as zarinpal_urls
 
 
     urlpatterns = [
         ...
-        url(r'^', include(zarrinpal_urls)),
+        url(r'^', include(zarinpal_urls)),
         ...
     ]
 
@@ -52,6 +52,23 @@ Features
 --------
 
 * TODO
+
+How to Use
+----------
+set these variables in your settings file:
+1.ZARINPAL_CALLBACK_URL
+2.ZARINPAL_SIMULATION
+3.ZARINPAL_MERCHANT_ID (you may leave it blank if you set the simulation to True
+
+you have to use function start_transaction with a dictionary containing your transaction data like this:
+.. code-block:: python
+
+        data = {
+            amount : int,
+            description: str, #optional
+            mobile: string, #optional
+            email: string, #optional
+        }
 
 Running Tests
 -------------
