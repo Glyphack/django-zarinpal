@@ -54,7 +54,7 @@ def verify_transaction(request) -> HttpResponse:
         return HttpResponse('Transaction failed or canceled by user')
 
 
-def get_call_back_url(transaction):
+def get_call_back_url():
     if ZARINPAL_CALLBACK_URL:
         return ZARINPAL_CALLBACK_URL
     else:
