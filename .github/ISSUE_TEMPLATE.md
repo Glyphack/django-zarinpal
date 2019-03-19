@@ -1,4 +1,4 @@
-* django-zarrinpal version:
+* django-zarinpal version:
 * Django version:
 * Python version:
 * Operating System:

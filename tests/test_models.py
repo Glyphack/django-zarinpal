@@ -13,7 +13,7 @@ from django.test import TestCase
 from zarinpal import models
 
 
-class TestZarrinpal(TestCase):
+class TestZarinpal(TestCase):
 
     def setUp(self):
         pass

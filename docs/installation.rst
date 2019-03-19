@@ -4,9 +4,9 @@ Installation
 
 At the command line::
 
-    $ easy_install django-zarrinpal
+    $ easy_install django-zarinpal
 
 Or, if you have virtualenvwrapper installed::
 
-    $ mkvirtualenv django-zarrinpal
-    $ pip install django-zarrinpal
+    $ mkvirtualenv django-zarinpal
+    $ pip install django-zarinpal
