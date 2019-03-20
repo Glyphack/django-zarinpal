@@ -13,7 +13,7 @@ from .config import (
 from .models import Transaction
 
 
-def start_transaction(transaction_data: dict, simulation: bool = ZARINPAL_SIMULATION) -> str:
+def start_transaction(transaction_data: dict) -> str:
     transaction = Transaction.objects.create_transaction(transaction_data)
     start_transaction_data = generate_start_transaction_data(transaction)
     client = Client(ZARINPAL_WEBSERVICE)
