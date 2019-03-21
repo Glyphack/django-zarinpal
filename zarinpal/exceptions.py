@@ -14,3 +14,7 @@ class UnknownTransactionStatusCode(Error):
 
 class CallbackUrlNotProvided(Error):
     """ callback url is not provided in transaction data or project settings """
+
+
+class TransactionDoesNotExist(Error):
+    """ No transaction submitted with this authority """
