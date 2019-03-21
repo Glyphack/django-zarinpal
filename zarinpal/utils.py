@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from zeep import Client
 
+from zarinpal.exceptions import TransactionDoesNotExist
 from zarinpal.helpers import generate_start_transaction_data
 from .config import (
     ZARINPAL_MERCHANT_ID,
@@ -29,29 +30,27 @@ def start_transaction(transaction_data: dict) -> str:
         return ZARINPAL_START_GATEWAY + result.Authority
 
 
-def verify_transaction(request) -> HttpResponse:
+def verify_transaction(status: str, authority: int) -> Transaction:
     client = Client(ZARINPAL_WEBSERVICE)
-    authority = request.GET['Authority']
-    transaction = Transaction.objects.get(authority=authority)
-    if not transaction:
-        return HttpResponse('this request does not have a started transaction')
-    if request.GET.get("Status") == "OK":
+    try:
+        transaction = Transaction.objects.get(authority=authority)
+    except Transaction.DoesNotExist:
+        raise TransactionDoesNotExist
+    if status == "OK":
         result = client.service.PaymentVerification(
             ZARINPAL_MERCHANT_ID, authority, transaction.amount
         )
         if result.Status == 100:
-            transaction.success()
-            transaction.ref_id = result.RefID
-            return HttpResponse('Transaction success. RefID: ' + str(result.RefID))
+            transaction.success(result.RefID)
         elif result.Status == 101:
             transaction.status = result.Status
             return HttpResponse('Transaction submitted : ' + str(result.Status))
         else:
-            transaction.status = result.Status
-            return HttpResponse('Transaction failed. Status: ' + str(result.Status))
+            transaction.fail(result.Status)
     else:
         transaction.fail('Canceled')
-        return HttpResponse('Transaction failed or canceled by user')
+
+    return transaction
 
 
 def get_call_back_url():
