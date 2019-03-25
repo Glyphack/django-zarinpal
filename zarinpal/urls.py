@@ -5,5 +5,5 @@ from .views import verify_transaction_view
 
 app_name = 'zarinpal'
 urlpatterns = [
-    path("/verify", verify_transaction_view, name="verify")
+    path("verify/", verify_transaction_view, name="verify_transaction")
 ]
