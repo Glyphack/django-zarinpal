@@ -4,7 +4,6 @@ from django.urls import reverse
 from zeep import Client
 
 from zarinpal.exceptions import TransactionDoesNotExist
-from zarinpal.helpers import generate_start_transaction_data
 from .config import (
     ZARINPAL_MERCHANT_ID,
     ZARINPAL_SIMULATION,
@@ -26,8 +25,11 @@ def start_transaction(transaction_data: dict) -> str:
         start_transaction_data['mobile'],
         start_transaction_data['callback_url'],
     )
+    print(start_transaction_data)
     if result.Status == 100:
         return ZARINPAL_START_GATEWAY + result.Authority
+    else:
+        print(result)
 
 
 def verify_transaction(status: str, authority: int) -> Transaction:
@@ -53,10 +55,23 @@ def verify_transaction(status: str, authority: int) -> Transaction:
     return transaction
 
 
-def get_call_back_url():
+def generate_start_transaction_data(transaction):
+    return {
+        'merchant_id': ZARINPAL_MERCHANT_ID,
+        "amount": transaction.amount,
+        "description": transaction.description,
+        "email": transaction.email,
+        "mobile": transaction.mobile,
+        "callback_url": get_callback_url(),
+    }
+
+
+def get_callback_url():
     if ZARINPAL_CALLBACK_URL:
         return ZARINPAL_CALLBACK_URL
     else:
         return Site.objects.get_current().domain + reverse(
             'zarinpal:verify_transaction',
         )
+
+
