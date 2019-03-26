@@ -64,12 +64,33 @@ you have to use function start_transaction with a dictionary containing your tra
 .. code-block:: python
 
         data = {
+            user: user object, #optional
+
+            first_name: str, #optional
+
+            last_name: str, #optional
+
             amount : int,
+
+            callback_url, #optional
+
             description: str, #optional
+
             mobile: string, #optional
+
             email: string, #optional
+
+
         }
 
+If you specify a callback_url in transaction data after completing transaction zarinpal will redirect user to the page you specified with two get arguments:
+
+1.order_number
+
+2.success: boolean
+
+If you want to handle verifying transaction your self you can define your view and address it in settings with CALLBACK_URL you need to use function verify_transaction to check the transaction state it will return a transaction and you can check if it's successful or not.
+you can leave it empty so package will take care of verifying transaction.
 Running Tests
 -------------
 
