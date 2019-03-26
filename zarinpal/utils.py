@@ -27,6 +27,8 @@ def start_transaction(transaction_data: dict) -> str:
     )
     print(start_transaction_data)
     if result.Status == 100:
+        transaction.authority = result.Authority
+        transaction.save(update_fields=['authority'])
         return ZARINPAL_START_GATEWAY + result.Authority
     else:
         print(result)
@@ -35,7 +37,7 @@ def start_transaction(transaction_data: dict) -> str:
 def verify_transaction(status: str, authority: int) -> Transaction:
     client = Client(ZARINPAL_WEBSERVICE)
     try:
-        transaction = Transaction.objects.get(authority=authority)
+        transaction = Transaction.objects.get(status='PENDING', authority=authority)
     except Transaction.DoesNotExist:
         raise TransactionDoesNotExist
     if status == "OK":
@@ -70,7 +72,7 @@ def get_callback_url():
     if ZARINPAL_CALLBACK_URL:
         return ZARINPAL_CALLBACK_URL
     else:
-        return Site.objects.get_current().domain + reverse(
+        return "http://" + Site.objects.get_current().domain + reverse(
             'zarinpal:verify_transaction',
         )
 
