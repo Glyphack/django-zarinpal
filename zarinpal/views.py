@@ -17,6 +17,10 @@ def verify_transaction_view(request):
     status = request.GET.get("Status")
     transaction = verify_transaction(status, authority)
     transaction_verified.send(sender=None, transaction=transaction)
-    return redirect(
-       transaction.callback_url
-    )
+    print("verified")
+    if transaction.callback_url:
+        return redirect(transaction.callback_url)
+    return HttpResponse(f'done transaction{authority}')
+    # return redirect(
+    #    transaction.callback_url
+    # )
