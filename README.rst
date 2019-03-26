@@ -91,6 +91,7 @@ If you specify a callback_url in transaction data after completing transaction z
 
 If you want to handle verifying transaction your self you can define your view and address it in settings with CALLBACK_URL you need to use function verify_transaction to check the transaction state it will return a transaction and you can check if it's successful or not.
 you can leave it empty so package will take care of verifying transaction.
+
 Running Tests
 -------------
 
