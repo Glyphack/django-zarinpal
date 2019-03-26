@@ -56,9 +56,12 @@ Features
 How to Use
 ----------
 set these variables in your settings file:
-1.ZARINPAL_CALLBACK_URL
+1.ZARINPAL_CALLBACK_URL(if you want to handle verification yourself explained here)
+
 2.ZARINPAL_SIMULATION
+
 3.ZARINPAL_MERCHANT_ID (you may leave it blank if you set the simulation to True
+
 
 you have to use function start_transaction with a dictionary containing your transaction data like this:
 .. code-block:: python
