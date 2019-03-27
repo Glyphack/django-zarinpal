@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-03-27T12:58:42 &#43;0430">
-<title>Installations :: django zarinpal documentation</title>
+<title>Start Transaction :: django zarinpal documentation</title>
 <link rel="shortcut icon" href="/django-zarinpal/images/favicon.png" type="image/x-icon" />
 <link href="/django-zarinpal/css/font-awesome.min.css" rel="stylesheet">
 <link href="/django-zarinpal/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/django-zarinpal/installation/">
+  <body data-url="/django-zarinpal/usage/start-transaction/">
     
       <header>
   <div class="logo">
@@ -45,13 +45,14 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/django-zarinpal/usage/" class="dd-item haschildren
+    <li data-nav-id="/django-zarinpal/usage/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/django-zarinpal/usage/">Usages</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      <a href="/django-zarinpal/usage/">Usages</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/django-zarinpal/usage/start-transaction/" class="dd-item">
+      <li data-nav-id="/django-zarinpal/usage/start-transaction/" class="dd-item active">
         <div>
           <a href="/django-zarinpal/usage/start-transaction/">
             Start Transaction
@@ -60,11 +61,10 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/django-zarinpal/installation/" class="dd-item parent active haschildren
+    <li data-nav-id="/django-zarinpal/installation/" class="dd-item haschildren
         ">
       <div>
-      <a href="/django-zarinpal/installation/">Installations</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      <a href="/django-zarinpal/installation/">Installations</a><i class="fa fa-angle-right fa-lg category-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/django-zarinpal/installation/how-to/" class="dd-item">
@@ -113,12 +113,11 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/django-zarinpal/usage/" >
-   Usages</option>
-    <option value="/django-zarinpal/installation/"  selected>
-   Installations</option> 
-      <option value="/django-zarinpal/installation/how-to/" >- How To</option>
-      <option value="/django-zarinpal/installation/configuration/" >- Configuration</option>
+   Usages</option> 
+      <option value="/django-zarinpal/usage/start-transaction/"  selected>- Start Transaction</option>
   
+    <option value="/django-zarinpal/installation/" >
+   Installations</option>
     <option value="/django-zarinpal/posts/" >
    Posts</option>
 
@@ -143,75 +142,60 @@
       </div>
     
 
-    <h1>Installations</h1>
+    <h1>Start Transaction</h1>
     
     
     
+    <h2 id="how-to-start-a-transaction">how to start a transaction</h2>
 
+<p></p>
 
+<p>you need to use function start_transaction with a dictionary containing your transaction data like this: .. code-block:: python</p>
 
-<div class="extra-pagination inner">
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
+<pre><code>data = {
 
-</div>
+    user: user object, #optional
 
+    first_name: str, #optional
 
-   <article class="post installation">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/django-zarinpal/installation/how-to/">How To</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p><p></p> <a class="read-more" href="/django-zarinpal/installation/how-to/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
+    last_name: str, #optional
 
-        
-        
+    amount : int,
 
-    </footer>
-</article>
+    callback_url, #optional
 
-   <article class="post installation">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/django-zarinpal/installation/configuration/">Configuration</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p><p></p> <a class="read-more" href="/django-zarinpal/installation/configuration/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
+    description: str, #optional
 
-        
-        
+    mobile: string, #optional
 
-    </footer>
-</article>
+    email: string, #optional
 
+}
+start_transaction(transaction_data)
+</code></pre>
 
-<div style="margin-bottom:2rem"></div>
+<p>this function will return a url you need to redirect user to after completing transaction user will be redirected to the url you specified in transaction_data with get parameter order_number and success.</p>
 
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
+<h2 id="verification-proccess">verification proccess</h2>
 
+<p>after completing transaction zarinpal will rederict user to www.yoursite.com/zarinpal/verify this view will verify user transaction and update the transaction objecct associated with that payment.
+there is also a verify_transaction signal that will send transaction object after verification.
+the view will redirect user to the callback_url you specified in transaction data.</p>
 
+<p>If you specify a callback_url in settings after completing transaction zarinpal will redirect user to the page you specified with two get arguments:</p>
 
+<p>1.order_number</p>
+
+<p>2.success: boolean</p>
+
+<p>If you want to handle verifying transaction your self you can define your view and address it in settings with CALLBACK_URL you need to use function verify_transaction to check the transaction state it will return a transaction and you can check if it&rsquo;s successful or not. you can leave it empty so package will take care of verifying transaction.</p>
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/django-zarinpal/usage/start-transaction/" title="Start Transaction"> <i class="fa fa-chevron-left"></i><label>Start Transaction</label></a>
-    <a class="nav nav-next" href="/django-zarinpal/installation/how-to/" title="How To" style="margin-right: 0px;"><label>How To</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/django-zarinpal/usage/" title="Usages"> <i class="fa fa-chevron-left"></i><label>Usages</label></a>
+    <a class="nav nav-next" href="/django-zarinpal/installation/" title="Installations" style="margin-right: 0px;"><label>Installations</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
