@@ -16,7 +16,7 @@ django package for integrating payments with zarinpal
 Documentation
 -------------
 
-The full documentation is at https://django-zarinpal.readthedocs.io.
+The full documentation is at https://glyphack.github.io/django-zarinpal/.
 
 Quickstart
 ----------
