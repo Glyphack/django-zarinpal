@@ -1,5 +1,0 @@
-baseURL = "https://glyphack.github.io/django-zarinpal/"
-languageCode = "en-us"
-title = "django zarinpal documentation"
-theme = "docdock"
-publishDir = "../public"
