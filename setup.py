@@ -11,7 +11,7 @@ except ImportError:
 
 
 def get_version(*file_paths):
-    """Retrieves the version from zarrinpal/__init__.py"""
+    """Retrieves the version from zarinpal/__init__.py"""
     filename = os.path.join(os.path.dirname(__file__), *file_paths)
     version_file = open(filename).read()
     version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
@@ -21,7 +21,7 @@ def get_version(*file_paths):
     raise RuntimeError('Unable to find version string.')
 
 
-version = get_version("zarrinpal", "__init__.py")
+version = get_version("zarinpal", "__init__.py")
 
 
 if sys.argv[-1] == 'publish':
@@ -45,21 +45,21 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
-    name='django-zarrinpal',
+    name='django-zarinpal',
     version=version,
-    description="""django package for integrating payments with zarrinpal""",
+    description="""django package for integrating payments with zarinpal""",
     long_description=readme + '\n\n' + history,
     author='Shayegan Hooshyari',
     author_email='sh.hooshyari@gmail.com',
-    url='https://github.com/glyphack/django-zarrinpal',
+    url='https://github.com/glyphack/django-zarinpal',
     packages=[
-        'zarrinpal',
+        'zarinpal',
     ],
     include_package_data=True,
     install_requires=["django-model-utils>=2.0",],
     license="MIT",
     zip_safe=False,
-    keywords='django-zarrinpal',
+    keywords='django-zarinpal',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Framework :: Django :: 2.0',

@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sites",
-    "zarrinpal",
+    "zarinpal",
 ]
 
 SITE_ID = 1
