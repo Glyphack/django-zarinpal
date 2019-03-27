@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-27T12:30:59 &#43;0430">
-<title>404 Page not found :: django zarinpal documentation</title>
+<meta name="revised" content="2019-03-27T12:32:02 &#43;0430">
+<title>How To :: django zarinpal documentation</title>
 <link rel="shortcut icon" href="/django-zarinpal/images/favicon.png" type="image/x-icon" />
 <link href="/django-zarinpal/css/font-awesome.min.css" rel="stylesheet">
 <link href="/django-zarinpal/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="">
+  <body data-url="/django-zarinpal/installation/how-to/">
     
       <header>
   <div class="logo">
@@ -45,13 +45,14 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/django-zarinpal/installation/" class="dd-item haschildren
+    <li data-nav-id="/django-zarinpal/installation/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/django-zarinpal/installation/">Installations</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      <a href="/django-zarinpal/installation/">Installations</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/django-zarinpal/installation/how-to/" class="dd-item">
+      <li data-nav-id="/django-zarinpal/installation/how-to/" class="dd-item active">
         <div>
           <a href="/django-zarinpal/installation/how-to/">
             How To
@@ -97,7 +98,10 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/django-zarinpal/installation/" >
-   Installations</option>
+   Installations</option> 
+      <option value="/django-zarinpal/installation/how-to/"  selected>- How To</option>
+      <option value="/django-zarinpal/installation/configuration/" >- Configuration</option>
+  
     <option value="/django-zarinpal/posts/" >
    Posts</option>
 
@@ -122,21 +126,36 @@
       </div>
     
 
-    <h1>404 Page not found</h1>
+    <h1>How To</h1>
     
     
-	<h1>Error</h1>
-	<p>
-	</p>
-	<p>Woops. Looks like this page doesn&#39;t exist.</p>
-	<p></p>
-	<p><a href="https://glyphack.github.io/django-zarinpal/">Go to homepage</a></p>
-	<p><img src="/django-zarinpal/images/gopher-404.jpg" style="width:50%"></img></p>    
+    
+    <p></p>
+
+<h2 id="instalation">Instalation</h2>
+
+<ul>
+<li><h3 id="from-pypi">from pypi</h3>
+
+<pre><code>pip install django-zarinpal
+</code></pre></li>
+
+<li><h3 id="from-github">from github</h3>
+
+<pre><code>git submodule add https://github.com/glyphack/djano-zarinpal
+git submodule init
+git submodule upadte
+</code></pre>
+
+<p>it will creates a folder in your project you can import zarinpal from django-zarinpal/zarinpal</p></li>
+</ul>
+
     
     
         <div class="chevrons">
     <div id="navigation">
-</div>
+<a class="nav nav-prev" href="/django-zarinpal/installation/" title="Installations"> <i class="fa fa-chevron-left"></i><label>Installations</label></a>
+    <a class="nav nav-next" href="/django-zarinpal/installation/configuration/" title="Configuration" style="margin-right: 0px;"><label>Configuration</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -149,6 +168,10 @@
 
     
 
+    
+    <div class="date">
+        <i class='fa fa-calendar'></i> Last update on 27/03/2019
+    </div>
     
 
     
@@ -186,5 +209,3 @@
     
   </body>
 </html>
-
-

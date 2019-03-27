@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-27T12:30:59 &#43;0430">
-<title>Posts :: django zarinpal documentation</title>
+<meta name="revised" content="2019-03-27T12:32:02 &#43;0430">
+<title>Configuration :: django zarinpal documentation</title>
 <link rel="shortcut icon" href="/django-zarinpal/images/favicon.png" type="image/x-icon" />
 <link href="/django-zarinpal/css/font-awesome.min.css" rel="stylesheet">
 <link href="/django-zarinpal/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/django-zarinpal/posts/">
+  <body data-url="/django-zarinpal/installation/configuration/">
     
       <header>
   <div class="logo">
@@ -45,10 +45,11 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/django-zarinpal/installation/" class="dd-item haschildren
+    <li data-nav-id="/django-zarinpal/installation/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/django-zarinpal/installation/">Installations</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      <a href="/django-zarinpal/installation/">Installations</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/django-zarinpal/installation/how-to/" class="dd-item">
@@ -58,7 +59,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/django-zarinpal/installation/configuration/" class="dd-item">
+      <li data-nav-id="/django-zarinpal/installation/configuration/" class="dd-item active">
         <div>
           <a href="/django-zarinpal/installation/configuration/">
             Configuration
@@ -67,11 +68,10 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/django-zarinpal/posts/" class="dd-item parent active haschildren
+    <li data-nav-id="/django-zarinpal/posts/" class="dd-item haschildren
         ">
       <div>
-      <a href="/django-zarinpal/posts/">Posts</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      <a href="/django-zarinpal/posts/">Posts</a><i class="fa fa-angle-right fa-lg category-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/django-zarinpal/posts/1.getting-started/" class="dd-item">
@@ -98,11 +98,12 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/django-zarinpal/installation/" >
-   Installations</option>
-    <option value="/django-zarinpal/posts/"  selected>
-   Posts</option> 
-      <option value="/django-zarinpal/posts/1.getting-started/" >- Getting Started</option>
+   Installations</option> 
+      <option value="/django-zarinpal/installation/how-to/" >- How To</option>
+      <option value="/django-zarinpal/installation/configuration/"  selected>- Configuration</option>
   
+    <option value="/django-zarinpal/posts/" >
+   Posts</option>
 
 
 
@@ -125,58 +126,34 @@
       </div>
     
 
-    <h1>Posts</h1>
+    <h1>Configuration</h1>
     
     
     
+    <p></p>
 
+<p>Add zarinpal to your installed apps</p>
 
+<pre><code>INSTALLED_APPS = [
+...
+&quot;zarinpal&quot;,
+...
+</code></pre>
 
-<div class="extra-pagination inner">
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
+<p>there are some variables that indicates how you want to work with django-zarinpal:</p>
 
-</div>
+<p>1.ZARINPAL_CALLBACK_URL(if you want to handle verification yourself)</p>
 
+<p>2.ZARINPAL_SIMULATION(if you want to try package in sandbox mode without any api key)</p>
 
-   <article class="post posts">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/django-zarinpal/posts/1.getting-started/">Getting Started</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Lorem Ipsum. Notice draft is set to true. <a class="read-more" href="/django-zarinpal/posts/1.getting-started/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-<div style="margin-bottom:2rem"></div>
-
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
-
-
-
+<p>3.ZARINPAL_MERCHANT_ID (it is your api key, you may leave it blank if you set the simulation to True)</p>
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/django-zarinpal/installation/configuration/" title="Configuration"> <i class="fa fa-chevron-left"></i><label>Configuration</label></a>
-    <a class="nav nav-next" href="/django-zarinpal/posts/1.getting-started/" title="Getting Started" style="margin-right: 0px;"><label>Getting Started</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/django-zarinpal/installation/how-to/" title="How To"> <i class="fa fa-chevron-left"></i><label>How To</label></a>
+    <a class="nav nav-next" href="/django-zarinpal/posts/" title="Posts" style="margin-right: 0px;"><label>Posts</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
