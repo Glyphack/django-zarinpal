@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/installation/how-to/</loc>
+    <lastmod>2019-03-27T00:59:42+04:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/installation/configuration/</loc>
+    <lastmod>2019-03-27T09:18:15+04:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/posts/1.getting-started/</loc>
+    <lastmod>2019-03-27T00:57:48+04:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/_footer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/</loc>
+    <lastmod>2019-03-27T00:59:42+04:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/installation/</loc>
+    <lastmod>2019-03-27T00:59:42+04:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/posts/</loc>
+    <lastmod>2019-03-27T00:57:48+04:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
