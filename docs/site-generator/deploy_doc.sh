@@ -19,4 +19,4 @@ fi
 git commit -m "$msg"
 cd ..
 # Push source and build repos.
-git subtree push --prefix docs/dist origin gh-pages
+git subtree push --prefix docs/static origin gh-pages
