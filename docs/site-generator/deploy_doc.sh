@@ -8,7 +8,7 @@ cd ../site-generator
 hugo
 
 # Add changes to git.
-cd ../dist
+cd ..
 git add .
 
 # Commit changes.
