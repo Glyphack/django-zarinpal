@@ -14,7 +14,7 @@ if [ $# -eq 1 ]
   then msg="$1"
 fi
 git commit -m "$msg"
-
+cd ..
 # Push source and build repos.
 git subtree push --prefix docs/public origin gh-pages
 # git subtree push --prefix=public https://github.com/[github username]/blog.git gh-pages
