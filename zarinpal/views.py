@@ -19,7 +19,7 @@ def verify_transaction_view(request):
     transaction_verified.send(sender=None, transaction=transaction)
     print("verified")
     if transaction.callback_url:
-        return redirect(transaction.callback_url)
+        return redirect(transaction.callback_url + f"/?success={transaction.is_successful()}&orderNumber={transaction.order_number}")
     return HttpResponse(f'done transaction{authority}')
     # return redirect(
     #    transaction.callback_url
