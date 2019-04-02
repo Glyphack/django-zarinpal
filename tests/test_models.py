@@ -14,7 +14,6 @@ from zarinpal import models
 
 
 class TestZarinpal(TestCase):
-
     def setUp(self):
         pass
 

@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 
 class ZarinpalConfig(AppConfig):
-    name = 'zarinpal'
+    name = "zarinpal"

@@ -15,9 +15,7 @@ class Transaction(models.Model):
     amount = models.DecimalField(
         max_digits=64, decimal_places=2, default=0, blank=True, null=True
     )
-    authority = models.CharField(
-        max_length=100, blank=True, null=True
-    )
+    authority = models.CharField(max_length=100, blank=True, null=True)
     ref_id = models.IntegerField(null=True, blank=True)
     description = models.TextField()
     callback_url = models.CharField(max_length=100)
@@ -25,7 +23,9 @@ class Transaction(models.Model):
     last_name = models.CharField(max_length=225, blank=True, null=True)
     email = models.CharField(max_length=225, blank=True, null=True)
     mobile = models.CharField(max_length=225, blank=True, null=True)
-    order_number = HashidField(allow_int_lookup=True, blank=True, null=True, salt='place a salt here')  # todo:  add salt
+    order_number = HashidField(
+        allow_int_lookup=True, blank=True, null=True, salt="place a salt here"
+    )  # todo:  add salt
     address = models.CharField(max_length=225, blank=True, null=True)
     country = models.CharField(max_length=225, blank=True, null=True)
     postal_code = models.CharField(max_length=225, blank=True, null=True)
@@ -64,8 +64,7 @@ class Transaction(models.Model):
             return ZARINPAL_START_GATEWAY + self.authority
         else:
             relative_start_url = reverse(
-                "zarinpal:sandbox-payment",
-                kwargs={"authority_start": self.authority},
+                "zarinpal:sandbox-payment", kwargs={"authority_start": self.authority}
             )
             if request:
                 return request.build_absolute_uri(relative_start_url)

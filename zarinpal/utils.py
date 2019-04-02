@@ -9,7 +9,8 @@ from .config import (
     ZARINPAL_SIMULATION,
     ZARINPAL_START_GATEWAY,
     ZARINPAL_WEBSERVICE,
-    ZARINPAL_CALLBACK_URL)
+    ZARINPAL_CALLBACK_URL,
+)
 from .models import Transaction
 
 
@@ -18,17 +19,17 @@ def start_transaction(transaction_data: dict) -> str:
     start_transaction_data = generate_start_transaction_data(transaction)
     client = Client(ZARINPAL_WEBSERVICE)
     result = client.service.PaymentRequest(
-        start_transaction_data['merchant_id'],
-        start_transaction_data['amount'],
-        start_transaction_data['description'],
-        start_transaction_data['email'],
-        start_transaction_data['mobile'],
-        start_transaction_data['callback_url'],
+        start_transaction_data["merchant_id"],
+        start_transaction_data["amount"],
+        start_transaction_data["description"],
+        start_transaction_data["email"],
+        start_transaction_data["mobile"],
+        start_transaction_data["callback_url"],
     )
     print(start_transaction_data)
     if result.Status == 100:
         transaction.authority = result.Authority
-        transaction.save(update_fields=['authority'])
+        transaction.save(update_fields=["authority"])
         return ZARINPAL_START_GATEWAY + result.Authority
     else:
         print(result)
@@ -37,7 +38,7 @@ def start_transaction(transaction_data: dict) -> str:
 def verify_transaction(status: str, authority: int) -> Transaction:
     client = Client(ZARINPAL_WEBSERVICE)
     try:
-        transaction = Transaction.objects.get(status='PENDING', authority=authority)
+        transaction = Transaction.objects.get(status="PENDING", authority=authority)
     except Transaction.DoesNotExist:
         raise TransactionDoesNotExist
     if status == "OK":
@@ -48,18 +49,18 @@ def verify_transaction(status: str, authority: int) -> Transaction:
             transaction.success(result.RefID)
         elif result.Status == 101:
             transaction.status = result.Status
-            return HttpResponse('Transaction submitted : ' + str(result.Status))
+            return HttpResponse("Transaction submitted : " + str(result.Status))
         else:
             transaction.fail(result.Status)
     else:
-        transaction.fail('Canceled')
+        transaction.fail("Canceled")
 
     return transaction
 
 
 def generate_start_transaction_data(transaction):
     return {
-        'merchant_id': ZARINPAL_MERCHANT_ID,
+        "merchant_id": ZARINPAL_MERCHANT_ID,
         "amount": transaction.amount,
         "description": transaction.description,
         "email": transaction.email,
@@ -72,8 +73,8 @@ def get_callback_url():
     if ZARINPAL_CALLBACK_URL:
         return ZARINPAL_CALLBACK_URL
     else:
-        return "http://" + Site.objects.get_current().domain + reverse(
-            'zarinpal:verify_transaction',
+        return (
+            "http://"
+            + Site.objects.get_current().domain
+            + reverse("zarinpal:verify_transaction")
         )
-
-
