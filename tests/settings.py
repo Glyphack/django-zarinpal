@@ -22,6 +22,9 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+# zarinpal settings
+ZARINPAL_SIMULATION = True
+
 if django.VERSION >= (1, 10):
     MIDDLEWARE = ()
 else:
