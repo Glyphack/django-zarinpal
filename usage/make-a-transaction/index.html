@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-04-18T23:39:38 &#43;0430">
-<title>Categories :: django zarinpal documentation</title>
+<title>Start Transaction :: django zarinpal documentation</title>
 <link rel="shortcut icon" href="/django-zarinpal/images/favicon.png" type="image/x-icon" />
 <link href="/django-zarinpal/css/font-awesome.min.css" rel="stylesheet">
 <link href="/django-zarinpal/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/django-zarinpal/categories/">
+  <body data-url="/django-zarinpal/usage/make-a-transaction/">
     
       <header>
   <div class="logo">
@@ -45,13 +45,14 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/django-zarinpal/usage/" class="dd-item haschildren
+    <li data-nav-id="/django-zarinpal/usage/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/django-zarinpal/usage/">Usages</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      <a href="/django-zarinpal/usage/">Usages</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/django-zarinpal/usage/make-a-transaction/" class="dd-item">
+      <li data-nav-id="/django-zarinpal/usage/make-a-transaction/" class="dd-item active">
         <div>
           <a href="/django-zarinpal/usage/make-a-transaction/">
             Start Transaction
@@ -104,7 +105,9 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/django-zarinpal/usage/" >
-   Usages</option>
+   Usages</option> 
+      <option value="/django-zarinpal/usage/make-a-transaction/"  selected>- Start Transaction</option>
+  
     <option value="/django-zarinpal/set-up/" >
    Set Ups</option>
 
@@ -129,40 +132,60 @@
       </div>
     
 
-    <h1>Categories</h1>
+    <h1>Start Transaction</h1>
     
     
     
+    <h2 id="how-to-start-a-transaction">how to start a transaction</h2>
 
+<p></p>
 
+<p>you need to use function start_transaction with a dictionary containing your transaction data like this:</p>
 
-<div class="extra-pagination inner">
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 0</span>
-	
-</nav>
+<pre><code>data = {
 
-</div>
+    user: user object, #optional
 
+    first_name: str, #optional
 
+    last_name: str, #optional
 
-<div style="margin-bottom:2rem"></div>
+    amount : int,
 
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 0</span>
-	
-</nav>
+    callback_url, #optional
 
+    description: str, #optional
 
+    mobile: string, #optional
 
+    email: string, #optional
+
+}
+start_transaction(transaction_data)
+</code></pre>
+
+<p>this function will return a url you need to redirect user to after completing transaction user will be redirected to the url you specified in transaction_data with get parameter order_number and success.</p>
+
+<h2 id="verification-proccess">verification proccess</h2>
+
+<p>after completing transaction zarinpal will rederict user to www.yoursite.com/zarinpal/verify this view will verify user transaction and update the transaction objecct associated with that payment.
+there is also a verify_transaction signal that will send transaction object after verification.
+the view will redirect user to the callback_url you specified in transaction data.</p>
+
+<p>If you specify a callback_url in settings after completing transaction zarinpal will redirect user to the page you specified with two get arguments:</p>
+
+<p>1.order_number</p>
+
+<p>2.success: boolean</p>
+
+<p>If you want to handle verifying transaction your self you can define your view and address it in settings with CALLBACK_URL you need to use function verify_transaction to check the transaction state it will return a transaction and you can check if it&rsquo;s successful or not. you can leave it empty so package will take care of verifying transaction.</p>
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-next" href="/django-zarinpal/usage/" title="Usages" style="margin-right: 0px;"><label>Usages</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/django-zarinpal/usage/" title="Usages"> <i class="fa fa-chevron-left"></i><label>Usages</label></a>
+    <a class="nav nav-next" href="/django-zarinpal/set-up/" title="Set Ups" style="margin-right: 0px;"><label>Set Ups</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -175,6 +198,10 @@
 
     
 
+    
+    <div class="date">
+        <i class='fa fa-calendar'></i> Last update on 27/03/2019
+    </div>
     
 
     

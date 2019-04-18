@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-04-18T23:39:38 &#43;0430">
-<title>Categories :: django zarinpal documentation</title>
+<title>Settings :: django zarinpal documentation</title>
 <link rel="shortcut icon" href="/django-zarinpal/images/favicon.png" type="image/x-icon" />
 <link href="/django-zarinpal/css/font-awesome.min.css" rel="stylesheet">
 <link href="/django-zarinpal/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/django-zarinpal/categories/">
+  <body data-url="/django-zarinpal/set-up/settings/">
     
       <header>
   <div class="logo">
@@ -60,10 +60,11 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/django-zarinpal/set-up/" class="dd-item haschildren
+    <li data-nav-id="/django-zarinpal/set-up/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/django-zarinpal/set-up/">Set Ups</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      <a href="/django-zarinpal/set-up/">Set Ups</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/django-zarinpal/set-up/installation/" class="dd-item">
@@ -80,7 +81,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/django-zarinpal/set-up/settings/" class="dd-item">
+      <li data-nav-id="/django-zarinpal/set-up/settings/" class="dd-item active">
         <div>
           <a href="/django-zarinpal/set-up/settings/">
             Settings
@@ -106,7 +107,11 @@
     <option value="/django-zarinpal/usage/" >
    Usages</option>
     <option value="/django-zarinpal/set-up/" >
-   Set Ups</option>
+   Set Ups</option> 
+      <option value="/django-zarinpal/set-up/installation/" >- Installation</option>
+      <option value="/django-zarinpal/set-up/configuration/" >- Configuration</option>
+      <option value="/django-zarinpal/set-up/settings/"  selected>- Settings</option>
+  
 
 
 
@@ -129,40 +134,23 @@
       </div>
     
 
-    <h1>Categories</h1>
+    <h1>Settings</h1>
     
     
     
+    <p>1.ZARINPAL_CALLBACK_URL(if you want to handle verification yourself)</p>
 
+<p>2.ZARINPAL_SIMULATION(if you want to try package in sandbox mode without any api key)</p>
 
-
-<div class="extra-pagination inner">
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 0</span>
-	
-</nav>
-
-</div>
-
-
-
-<div style="margin-bottom:2rem"></div>
-
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 0</span>
-	
-</nav>
-
-
+<p>3.ZARINPAL_MERCHANT_ID (it is your api key, you may leave it blank if you set the simulation to True)</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-next" href="/django-zarinpal/usage/" title="Usages" style="margin-right: 0px;"><label>Usages</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/django-zarinpal/set-up/configuration/" title="Configuration"> <i class="fa fa-chevron-left"></i><label>Configuration</label></a>
+    <a class="nav nav-next" href="/django-zarinpal/set-up/installation/" title="Installation" style="margin-right: 0px;"><label>Installation</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -175,6 +163,10 @@
 
     
 
+    
+    <div class="date">
+        <i class='fa fa-calendar'></i> Last update on 18/04/2019
+    </div>
     
 
     

@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>django zarinpal documentation</title>
-    <link>https://glyphack.github.io/django-zarinpal/</link>
-    <description>Recent content on django zarinpal documentation</description>
+    <title>Set Ups on django zarinpal documentation</title>
+    <link>https://glyphack.github.io/django-zarinpal/set-up/</link>
+    <description>Recent content in Set Ups on django zarinpal documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Mar 2019 12:40:06 +0430</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2019 00:59:42 +0430</lastBuildDate>
     
-	<atom:link href="https://glyphack.github.io/django-zarinpal/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://glyphack.github.io/django-zarinpal/set-up/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Start Transaction</title>
-      <link>https://glyphack.github.io/django-zarinpal/usage/make-a-transaction/</link>
-      <pubDate>Wed, 27 Mar 2019 12:40:06 +0430</pubDate>
-      
-      <guid>https://glyphack.github.io/django-zarinpal/usage/make-a-transaction/</guid>
-      <description>&lt;h2 id=&#34;how-to-start-a-transaction&#34;&gt;how to start a transaction&lt;/h2&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Installation</title>
@@ -49,15 +38,6 @@
       <description>1.ZARINPAL_CALLBACK_URL(if you want to handle verification yourself)
 2.ZARINPAL_SIMULATION(if you want to try package in sandbox mode without any api key)
 3.ZARINPAL_MERCHANT_ID (it is your api key, you may leave it blank if you set the simulation to True)</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://glyphack.github.io/django-zarinpal/_footer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://glyphack.github.io/django-zarinpal/_footer/</guid>
-      <description>copyright glylphack</description>
     </item>
     
   </channel>

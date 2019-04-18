@@ -3,23 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://glyphack.github.io/django-zarinpal/usage/start-transaction/</loc>
+    <loc>https://glyphack.github.io/django-zarinpal/usage/make-a-transaction/</loc>
     <lastmod>2019-03-27T12:40:06+04:30</lastmod>
   </url>
   
   <url>
-    <loc>https://glyphack.github.io/django-zarinpal/installation/how-to/</loc>
+    <loc>https://glyphack.github.io/django-zarinpal/set-up/installation/</loc>
     <lastmod>2019-03-27T00:59:42+04:30</lastmod>
   </url>
   
   <url>
-    <loc>https://glyphack.github.io/django-zarinpal/installation/configuration/</loc>
+    <loc>https://glyphack.github.io/django-zarinpal/set-up/configuration/</loc>
     <lastmod>2019-03-27T09:18:15+04:30</lastmod>
   </url>
   
   <url>
-    <loc>https://glyphack.github.io/django-zarinpal/posts/1.getting-started/</loc>
-    <lastmod>2019-03-27T00:57:48+04:30</lastmod>
+    <loc>https://glyphack.github.io/django-zarinpal/set-up/settings/</loc>
+    <lastmod>2019-04-18T23:34:39+04:30</lastmod>
   </url>
   
   <url>
@@ -37,14 +37,8 @@
   </url>
   
   <url>
-    <loc>https://glyphack.github.io/django-zarinpal/installation/</loc>
+    <loc>https://glyphack.github.io/django-zarinpal/set-up/</loc>
     <lastmod>2019-03-27T00:59:42+04:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://glyphack.github.io/django-zarinpal/posts/</loc>
-    <lastmod>2019-03-27T00:57:48+04:30</lastmod>
     <priority>0</priority>
   </url>
   
