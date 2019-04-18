@@ -8,7 +8,7 @@ weight = 1
 ## how to start a transaction
 <!--more-->
 
-you need to use function start_transaction with a dictionary containing your transaction data like this: .. code-block:: python
+you need to use function start_transaction with a dictionary containing your transaction data like this: 
 
     data = {
 
