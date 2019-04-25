@@ -6,7 +6,7 @@ from zeep import Client
 from zarinpal.config import ZARINPAL_WEBSERVICE, ZARINPAL_MERCHANT_ID
 from .models import Transaction
 
-from .utils import verify_transaction
+from zarinpal.helpers import verify_transaction
 from .signals import transaction_verified
 
 
