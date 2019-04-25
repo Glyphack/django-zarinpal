@@ -4,6 +4,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from hashid_field import HashidField
+from django.conf import settings
 
 from .exceptions import CallbackUrlNotProvided
 from .config import TRANSACTION_STATUS_CHOICES, ZARINPAL_START_GATEWAY
@@ -24,8 +25,8 @@ class Transaction(models.Model):
     email = models.CharField(max_length=225, blank=True, null=True)
     mobile = models.CharField(max_length=225, blank=True, null=True)
     order_number = HashidField(
-        allow_int_lookup=True, blank=True, null=True, salt="place a salt here"
-    )  # todo:  add salt
+        allow_int_lookup=True, blank=True, null=True, salt=getattr(settings, "secret_key", None)
+    )
     address = models.CharField(max_length=225, blank=True, null=True)
     country = models.CharField(max_length=225, blank=True, null=True)
     postal_code = models.CharField(max_length=225, blank=True, null=True)
