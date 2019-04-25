@@ -3,6 +3,7 @@
 import os
 import re
 import sys
+import setuptools
 
 try:
     from setuptools import setup
@@ -21,7 +22,6 @@ def get_version(*file_paths):
 
 
 version = get_version("zarinpal", "__init__.py")
-
 
 if sys.argv[-1] == "publish":
     try:
@@ -44,7 +44,7 @@ if sys.argv[-1] == "tag":
 readme = open("README.rst").read()
 history = open("HISTORY.rst").read().replace(".. :changelog:", "")
 
-setup(
+setuptools.setup(
     name="django-zarinpal",
     version=version,
     description="""django package for integrating payments with zarinpal""",
@@ -54,7 +54,7 @@ setup(
     url="https://github.com/glyphack/django-zarinpal",
     packages=["zarinpal"],
     include_package_data=True,
-    install_requires=["django-model-utils>=2.0"],
+    install_requires=["zeep", "django-hashid-field"],
     license="MIT",
     zip_safe=False,
     keywords="django-zarinpal",
