@@ -51,7 +51,7 @@ Add django-zarinpal's URL patterns:
 Features
 --------
 
-* TODO
+- sending signal on verifying transaction to let other apps know about it
 
 How to Use
 ----------
@@ -65,6 +65,8 @@ set these variables in your settings file:
 
 you have to use function start_transaction with a dictionary containing your transaction data like this:
 .. code-block:: python
+
+        from django-zarinpal import start_transaction
 
         data = {
             user: user object, #optional
@@ -86,6 +88,8 @@ you have to use function start_transaction with a dictionary containing your tra
 
         }
 
+        start_transaction(data)
+
 If you specify a callback_url in transaction data after completing transaction zarinpal will redirect user to the page you specified with two get arguments:
 
 1.order_number
@@ -94,17 +98,6 @@ If you specify a callback_url in transaction data after completing transaction z
 
 If you want to handle verifying transaction your self you can define your view and address it in settings with CALLBACK_URL you need to use function verify_transaction to check the transaction state it will return a transaction and you can check if it's successful or not.
 you can leave it empty so package will take care of verifying transaction.
-
-Running Tests
--------------
-
-Does the code actually work?
-
-::
-
-    source <YOURVIRTUALENV>/bin/activate
-    (myenv) $ pip install tox
-    (myenv) $ tox
 
 Credits
 -------
