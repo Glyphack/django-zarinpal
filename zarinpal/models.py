@@ -25,7 +25,7 @@ class Transaction(models.Model):
     email = models.CharField(max_length=225, blank=True, null=True)
     mobile = models.CharField(max_length=225, blank=True, null=True)
     order_number = HashidField(
-        allow_int_lookup=True, blank=True, null=True, salt=getattr(settings, "secret_key", None)
+        allow_int_lookup=True, blank=True, null=True, salt=getattr(settings, "HASHID_FIELD_SALT", None)
     )
     address = models.CharField(max_length=225, blank=True, null=True)
     country = models.CharField(max_length=225, blank=True, null=True)
