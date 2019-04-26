@@ -9,7 +9,9 @@ weight = 1
 <!--more-->
 
 you need to use function start_transaction with a dictionary containing your transaction data like this: 
-
+    
+    from django-zarinpal.utils import start_transaction
+    
     data = {
 
         user: user object, #optional

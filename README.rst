@@ -66,7 +66,7 @@ set these variables in your settings file:
 you have to use function start_transaction with a dictionary containing your transaction data like this:
 .. code-block:: python
 
-        from django-zarinpal import start_transaction
+        from django-zarinpal.utils import start_transaction
 
         data = {
             user: user object, #optional
