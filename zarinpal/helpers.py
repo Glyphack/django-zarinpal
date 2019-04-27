@@ -1,3 +1,7 @@
+from django.contrib.sites.models import Site
+from django.http import HttpResponse
+from django.urls import reverse
+
 from zarinpal.config import ZARINPAL_WEBSERVICE, ZARINPAL_MERCHANT_ID, ZARINPAL_CALLBACK_URL
 from zarinpal.exceptions import TransactionDoesNotExist
 from zarinpal.models import Transaction
@@ -18,7 +22,8 @@ def verify_transaction(status: str, authority: int) -> Transaction:
             transaction.success(result.RefID)
         elif result.Status == 101:
             transaction.status = result.Status
-            return HttpResponse("Transaction submitted : " + str(result.Status))
+            return HttpResponse("Transaction submitted : " + str(
+                result.Status))  # todo: figure out what 101 code means and return transaction object
         else:
             transaction.fail(result.Status)
     else:
