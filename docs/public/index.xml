@@ -52,6 +52,15 @@
     </item>
     
     <item>
+      <title>0.1.5</title>
+      <link>https://glyphack.github.io/django-zarinpal/release-notes/0.1.5/</link>
+      <pubDate>Sat, 27 Apr 2019 19:08:35 +0430</pubDate>
+      
+      <guid>https://glyphack.github.io/django-zarinpal/release-notes/0.1.5/</guid>
+      <description>callback_url can be None, which makes it easier to test the package.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://glyphack.github.io/django-zarinpal/_footer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
