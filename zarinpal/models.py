@@ -19,7 +19,7 @@ class Transaction(models.Model):
     authority = models.CharField(max_length=100, blank=True, null=True)
     ref_id = models.IntegerField(null=True, blank=True)
     description = models.TextField()
-    callback_url = models.CharField(max_length=100)
+    callback_url = models.CharField(max_length=100, null=True)
     first_name = models.CharField(max_length=225, blank=True, null=True)
     last_name = models.CharField(max_length=225, blank=True, null=True)
     email = models.CharField(max_length=225, blank=True, null=True)
