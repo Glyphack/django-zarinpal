@@ -1,5 +1,4 @@
 from zeep import Client
-import logging
 
 from zarinpal.helpers import generate_start_transaction_data
 from .config import (
@@ -7,6 +6,7 @@ from .config import (
     ZARINPAL_WEBSERVICE,
 )
 from .models import Transaction
+from .exceptions import CouldNotStartTransaction, AmountIsLessThanMinimum
 
 
 def start_transaction(transaction_data: dict) -> str:
@@ -26,5 +26,7 @@ def start_transaction(transaction_data: dict) -> str:
         transaction.authority = result.Authority
         transaction.save(update_fields=["authority"])
         return ZARINPAL_START_GATEWAY + result.Authority
+    elif result.Status == -3:
+        raise AmountIsLessThanMinimum(f"response:{result}, transaction data: {transaction_data}")
     else:
-        logging.error(result)
+        raise CouldNotStartTransaction(f"response:{result}, transaction data: {transaction_data}")
