@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tests on django zarinpal documentation</title>
+    <link>https://glyphack.github.io/django-zarinpal/tests/</link>
+    <description>Recent content in Tests on django zarinpal documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Apr 2019 11:43:53 +0430</lastBuildDate>
+    
+	<atom:link href="https://glyphack.github.io/django-zarinpal/tests/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test Start Transaction</title>
+      <link>https://glyphack.github.io/django-zarinpal/tests/test-start-transaction/</link>
+      <pubDate>Mon, 29 Apr 2019 11:43:53 +0430</pubDate>
+      
+      <guid>https://glyphack.github.io/django-zarinpal/tests/test-start-transaction/</guid>
+      <description> Tests Running tests:
+python manage.py zarinpal.tests.test_transaction  </description>
+    </item>
+    
+  </channel>
+</rss>

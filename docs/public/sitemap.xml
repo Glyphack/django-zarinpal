@@ -23,6 +23,16 @@
   </url>
   
   <url>
+    <loc>https://glyphack.github.io/django-zarinpal/release-notes/0.1.6/</loc>
+    <lastmod>2019-04-29T11:45:31+04:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/tests/test-start-transaction/</loc>
+    <lastmod>2019-04-29T11:43:53+04:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://glyphack.github.io/django-zarinpal/release-notes/0.1.5/</loc>
     <lastmod>2019-04-27T19:08:35+04:30</lastmod>
   </url>
@@ -43,7 +53,7 @@
   
   <url>
     <loc>https://glyphack.github.io/django-zarinpal/release-notes/</loc>
-    <lastmod>2019-04-27T19:08:35+04:30</lastmod>
+    <lastmod>2019-04-29T11:45:31+04:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -55,6 +65,12 @@
   
   <url>
     <loc>https://glyphack.github.io/django-zarinpal/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://glyphack.github.io/django-zarinpal/tests/</loc>
+    <lastmod>2019-04-29T11:43:53+04:30</lastmod>
     <priority>0</priority>
   </url>
   
