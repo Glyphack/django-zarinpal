@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django_zarinpal"
-version = "0.1.6"
+version = "1.0.0"
 description = "integrate django payments with zarrinpal"
 authors = ["glyphack <sh.hooshyari@gmail.com>"]
 license = "MIT"
