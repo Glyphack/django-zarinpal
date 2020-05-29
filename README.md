@@ -1,9 +1,7 @@
 # django-zarinpal
 
-Documentation
--------------
+Integrate django payments with [zarinpal](https://www.zarinpal.com)
 
-The full documentation is at https://glyphack.github.io/django-zarinpal/.
 
 Features
 --------
