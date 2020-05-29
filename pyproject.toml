@@ -1,9 +1,10 @@
 [tool.poetry]
-name = "django_zarinpal"
-version = "1.0.0"
+name = "django-zarinpal"
+version = "1.0.1"
 description = "integrate django payments with zarrinpal"
 authors = ["glyphack <sh.hooshyari@gmail.com>"]
 license = "MIT"
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.5"
