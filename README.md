@@ -1,17 +1,4 @@
-=============================
-django-zarinpal
-=============================
-
-.. image:: https://badge.fury.io/py/django-zarinpal.svg
-    :target: https://badge.fury.io/py/django-zarinpal
-
-.. image:: https://travis-ci.org/glyphack/django-zarinpal.svg?branch=master
-    :target: https://travis-ci.org/glyphack/django-zarinpal
-
-.. image:: https://codecov.io/gh/glyphack/django-zarinpal/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/glyphack/django-zarinpal
-
-django package for integrating payments with zarinpal
+# django-zarinpal
 
 Documentation
 -------------
