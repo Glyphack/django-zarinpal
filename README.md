@@ -31,7 +31,7 @@ Add it to your `INSTALLED_APPS`:
 
     INSTALLED_APPS = (
         ...
-        'zarinpal.apps.ZarinpalConfig',
+        'zarinpal',
         ...
     )
 
@@ -39,12 +39,12 @@ Add django-zarinpal's URL patterns:
 
 .. code-block:: python
 
-    from zarinpal import urls as zarinpal_urls
+    import zarrinpal
 
 
     urlpatterns = [
         ...
-        url(r'^', include(zarinpal_urls)),
+        path('zarinpal/', include(zarinpal_urls)),
         ...
     ]
 
@@ -71,28 +71,19 @@ you have to use function start_transaction with a dictionary containing your tra
         data = {
             user: user object, #optional
 
-            first_name: str, #optional
-
-            last_name: str, #optional
-
             amount : int,
-
-            callback_url, #optional
 
             description: str, #optional
 
             mobile: string, #optional
 
             email: string, #optional
-
-
         }
-
         start_transaction(data)
 
 If you specify a callback_url in transaction data after completing transaction zarinpal will redirect user to the page you specified with two get arguments:
 
-1.order_number
+1.order_number: str
 
 2.success: boolean
 
@@ -104,14 +95,3 @@ Tests
 Running tests: ::
 
     python manage.py zarinpal.tests.test_transaction
-
-Credits
--------
-
-Tools used in rendering this package:
-
-*  Cookiecutter_
-*  `cookiecutter-djangopackage`_
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`cookiecutter-djangopackage`: https://github.com/pydanny/cookiecutter-djangopackage
